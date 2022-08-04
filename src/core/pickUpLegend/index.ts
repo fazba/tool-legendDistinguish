@@ -39,7 +39,12 @@ function autoDistinguish(map: Map<string, number>) {
     obj[v] > 0 ? obj[v]++ : Reflect.set(obj, v, 1);
   });
   //获取[...,图例，背景]
-  const [legendCount, bgColorCount] = Object.keys(obj).slice(-2);
+  let [legendCount, bgColorCount] = Object.keys(obj).slice(-2);
+  //是否包含背景
+  if (obj[bgColorCount] > 1) {
+    legendCount = bgColorCount;
+    bgColorCount = "0";
+  }
   //写入颜色
   map.forEach((v, k) => {
     if (~~legendCount >= v && ~~legendCount - 50 < v) {
@@ -53,9 +58,9 @@ function autoDistinguish(map: Map<string, number>) {
     }
   });
   //测试
-  // console.log(map);
-  // console.log(obj);
-  // console.log(Object.entries(obj));
+  console.log(map);
+  console.log(obj);
+  console.log(Object.entries(obj));
 
   return {
     bgColor,

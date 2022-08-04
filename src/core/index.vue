@@ -43,6 +43,7 @@ interface RenderListItemType {
 const input = ref<HTMLInputElement>();
 const renderList = ref<Array<RenderListItemType>>([]);
 const handleSolve = () => {
+  renderList.value = [];
   if (!input.value?.files) return;
   Array.prototype.forEach.call(input.value.files, v => {
     const url = URL.createObjectURL(v);
