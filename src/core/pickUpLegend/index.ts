@@ -38,7 +38,6 @@ function autoDistinguish(map: Map<string, number>) {
   map.forEach(v => {
     obj[v] > 0 ? obj[v]++ : Reflect.set(obj, v, 1);
   });
-  debugger;
   //获取[...,图例，背景]
   let [legendCount, bgColorCount] = Object.keys(obj).slice(-2);
   //是否包含背景
