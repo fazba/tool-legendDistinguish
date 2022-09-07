@@ -1,10 +1,23 @@
 {
   "name": "legend-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "工具-批量识别图例图片数据",
+  "keywords": [
+    "frontend",
+    "canvas"
+  ],
+  "homepage": "...",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fazba/tool-legendDistinguish.git"
+  },
+  "engines": {
+    "node": ">= 16"
+  },
   "scripts": {
-    "dev": "vite  --host 0.0.0.0",
-    "build": "vite build",
-    "preview": "vite preview"
+    "preinstall": "npx only-allow pnpm",
+    "dev": "vite --host 0.0.0.0 --mode development",
+    "build": "vite build --mode production"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.31.0",
@@ -29,7 +42,5 @@
     "dayjs": "^1.11.2",
     "mockjs": "^1.1.0"
   },
-  "dependencies": {},
-  "description": "工具-批量识别图例图片数据",
-  "id": 234
+  "dependencies": {}
 }

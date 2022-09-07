@@ -64,6 +64,16 @@ const handleClick = (text: string) => {
   navigator.clipboard.writeText(text);
   // ElMessage.success("复制成功");
 };
+onMounted(() => {
+  document.addEventListener("keydown", async e => {
+    e.preventDefault();
+    if (e.key.toLocaleLowerCase() === "v") {
+      console.log(e.key);
+      const text = await navigator.clipboard.read();
+      console.log(text);
+    }
+  });
+});
 </script>
 <style lang="less" scoped>
 .module {

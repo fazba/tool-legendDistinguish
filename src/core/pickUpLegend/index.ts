@@ -38,6 +38,7 @@ function autoDistinguish(map: Map<string, number>) {
   map.forEach(v => {
     obj[v] > 0 ? obj[v]++ : Reflect.set(obj, v, 1);
   });
+  debugger;
   //获取[...,图例，背景]
   let [legendCount, bgColorCount] = Object.keys(obj).slice(-2);
   //是否包含背景
@@ -81,11 +82,15 @@ function numIslands(data: Uint8ClampedArray, width: number, height: number) {
       const str = xyToRGBa(x, y).join();
       //
       const _continue = isContinueFindLand(str, backView, xyToRGBa);
+      // debugger;
       //当前色块面积
       const acreage = findLand(x, y, width, height, backView, _continue);
       //如果透明度为0，则不记录
       // if (str.slice(-2) === ',0') continue
       map.set(`${x},${y},${str}`, acreage);
+      //调试
+      console.log({ 颜色: str, acreage });
+      console.log(backView.map(v => v.join()));
     }
   }
   return map;
